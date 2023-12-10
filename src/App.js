@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import MyNabvar from "./home/nabvar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MyHome from "./home/home";
+import StudentForm from "./home/student";
+import CourseForm from "./home/course";
+import AttendanceForm from "./home/attendance";
+
+import Dashboard from "./home/dashboard";
+import St from "./home/studentTable";
+import Attendance from "./home/attendanceTable";
+import Ct from "./home/courseTable";
+
+
+
+
+
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+  
+  <Router>
+  <MyNabvar/>
+  <Routes>
+  <Route path="/dashboard" element={<Dashboard/>}/>
+  <Route path="/home" element={<MyHome/>}/>
+  <Route path="/student" element={<StudentForm/>}/>
+  <Route path="/course" element={<CourseForm/>}/>
+  <Route path="/attendance" element={<AttendanceForm/>}/>
+  <Route path="/studentTable" element={<St/>}/>
+  <Route path="/attendanceTable" element={<Attendance/>}/>
+  <Route path="/courseTable" element={<Ct/>}/>
+
+  </Routes>
+  </Router>
+    </>
   );
 }
 
